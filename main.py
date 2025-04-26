@@ -59,3 +59,7 @@ def calculate_keyword_match(cv_text: str, job_description: str) -> dict:
 @app.post("/cv-match")
 def match_cv(req: MatchRequest):
     return calculate_keyword_match(req.cv_text, req.job_description)
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
